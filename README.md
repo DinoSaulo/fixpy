@@ -1,24 +1,10 @@
-echo "=== Ferramentas disponíveis ==="
-for cmd in python python3 pip pip3 brew pyenv conda micromamba uv mise asdf pkg; do
-  printf "%-12s " "$cmd"
-  command -v "$cmd" || echo "not found"
-done
-
-echo
-echo "=== Pythons instalados ==="
-type -a python3 2>/dev/null
-ls -la /opt/homebrew/bin/python* 2>/dev/null
-ls -la /usr/local/bin/python* 2>/dev/null
-ls -la ~/bin/python* 2>/dev/null
-
-echo
-echo "=== Diretórios corporativos ==="
-echo "$PATH" | tr ':' '\n'
-
-
-ls -la /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin 2>/dev/null | head -50
-
-ls -la /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin 2>/dev/null | head -50
-
-
+Execute:
+ls /Applications | grep -Ei 'company|portal|self|service|software|jamf|workspace|munki|manage'
+Depois:
+profiles status -type enrollment
+E:
+ls /Library/Managed\ Installs 2>/dev/null
+Também quero testar se o PyPI está permitido, pois empresas às vezes bloqueiam GitHub/Python.org, mas liberam ou redirecionam pypi.org:
+nslookup pypi.org
+curl -I https://pypi.org
 
