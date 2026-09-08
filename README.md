@@ -1,7 +1,11 @@
-ls -la /usr/local/bin/jamf
+scutil --proxy
 
-/usr/local/bin/jamf -version 2>/dev/null
+Depois:
 
-e:
+env | grep -i proxy
 
-find /Applications -maxdepth 2 -iname '*python*' 2>/dev/null
+E:
+
+networksetup -getwebproxy Wi-Fi
+
+networksetup -getsecurewebproxy Wi-Fi
