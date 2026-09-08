@@ -1,11 +1,19 @@
-scutil --proxy
+brew --prefix python@3.13
 
-Depois:
+ls -la "$(brew --prefix python@3.13)/libexec/bin"
 
-env | grep -i proxy
+export PATH="$(brew --prefix python@3.13)/libexec/bin:$PATH"
 
-E:
+which python3
 
-networksetup -getwebproxy Wi-Fi
+python3 --version
 
-networksetup -getsecurewebproxy Wi-Fi
+echo 'export PATH="/opt/homebrew/opt/python@3.13/libexec/bin:$PATH"' >> ~/.zshrc
+
+source ~/.zshrc
+
+which python3
+
+python3 --version
+
+python3 -m pip --version
